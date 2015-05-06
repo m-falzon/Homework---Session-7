@@ -3,25 +3,19 @@
 import UIKit
 
 struct user {
-    var email = "m.falzon@live.com.au"
-    var password = "passwordy"
+    var email = String()
+    var password = String()
 }
 
-var users = ["Matt", "Emily"]
-
-var details = [
-    "Email": "m.falzon@live.com.au",
-    "Password": "1234"
-]
+var users = [user(email:"m.falzon@live.com.au", password:"password1"), user(email:"test@hotmail.com", password:"password2")]
 
 
-let emailDetails = user()
+var enteredEmail = "m.falzon@live.com.au"
+var enteredPassword = "password321"
 
-println("Your email is \(emailDetails.email)")
-println("Your password is \(emailDetails.password)")
 
 // Validate Password
-let passwordValidate = count(emailDetails.password)
+let passwordValidate = count(enteredPassword)
 
 if passwordValidate < 8 {
 println("Your password should be at least 8 characters")
@@ -30,7 +24,7 @@ println("Your password should be at least 8 characters")
     }
 
 // Validate Email
-let emailValidate = emailDetails.email
+let emailValidate = enteredEmail
 
 if contains(emailValidate, "@") {
     println("All good")
@@ -38,8 +32,9 @@ if contains(emailValidate, "@") {
     println("Please include the @ in your email address")
 }
 
-for email in users {
-    if email == emailValidate {
-        println("sweet")
-    }
-}
+
+let matchEmailDetails = filter(users) {$0.email == "enteredEmail" }
+    println("Success email is in the system")
+
+let if matchPasswordDetails = filter(users) {$0.password == "enteredPassword" }
+    println("Success password is in system")
